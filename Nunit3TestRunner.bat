@@ -1,0 +1,1 @@
+@echo OFF & /C Title %title% - Started at: %time:~0,8% & nunit3-console.exe %test-container% /result:%result-file% %test-case-switch%--test:%test-case%,
