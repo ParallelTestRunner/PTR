@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18CBADF2-2FB3-4B37-B320-B0F569C2BAC9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PTR</RootNamespace>
+    <AssemblyName>PTR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.1\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Util\BoolExtensions.cs" />
+    <Compile Include="Util\ChildProcessTracker.cs" />
+    <Compile Include="En.cs" />
+    <Compile Include="ILicenseChecker.cs" />
+    <Compile Include="Implementation\AbstractTestConfigManager.cs" />
+    <Compile Include="Implementation\TestRunner.cs" />
+    <Compile Include="Implementation\ReportProcessor.cs" />
+    <Compile Include="Config\SharedResourcesUtil.cs" />
+    <Compile Include="Implementation\TestConfigManagerWithTestCaseAsConcurentUnit.cs" />
+    <Compile Include="InternetTime.cs" />
+    <Compile Include="LicenseChecker.cs" />
+    <Compile Include="NTPClient.cs" />
+    <Compile Include="Threads\En.cs" />
+    <Compile Include="Threads\ILicenseChecker.cs" />
+    <Compile Include="Threads\InternetTime.cs" />
+    <Compile Include="Threads\LicenseChecker.cs" />
+    <Compile Include="Threads\NTPClient.cs" />
+    <Compile Include="Util\TestConfigExtensions.cs" />
+    <Compile Include="Util\MathExtensions.cs" />
+    <Compile Include="TestCategoryFilter.cs" />
+    <Compile Include="TestResultOutcomes.cs" />
+    <Compile Include="Util\EnumerableExtensions.cs" />
+    <Compile Include="Config\ConcurentUnitType.cs" />
+    <Compile Include="InvalidConfigurationException.cs" />
+    <Compile Include="Implementation\TestConfigManagerWithTestClassAsConcurentUnit.cs" />
+    <Compile Include="Implementation\TestCaseRepository.cs" />
+    <Compile Include="Util\PathExtensions.cs" />
+    <Compile Include="Config\AppConfigReader.cs" />
+    <Compile Include="Abstractions\IInputOutputUtil.cs" />
+    <Compile Include="Implementation\CommandLineProcessor.cs" />
+    <Compile Include="CONSTANTS.cs" />
+    <Compile Include="Abstractions\ICommandLineProcessor.cs" />
+    <Compile Include="Abstractions\ITestingConfigEditor.cs" />
+    <Compile Include="Abstractions\ITestConfigManager.cs" />
+    <Compile Include="Config\BaseConfig.cs" />
+    <Compile Include="Abstractions\ILogUtil.cs" />
+    <Compile Include="Implementation\InputOutputUtil.cs" />
+    <Compile Include="Abstractions\IObjectFactory.cs" />
+    <Compile Include="Abstractions\IReportProcessor.cs" />
+    <Compile Include="Abstractions\ITestCaseRepository.cs" />
+    <Compile Include="Abstractions\IPTRManager.cs" />
+    <Compile Include="Abstractions\ITestRunner.cs" />
+    <Compile Include="Implementation\LogUtil.cs" />
+    <Compile Include="Implementation\ObjectFactory.cs" />
+    <Compile Include="Util\InputOutputOperationsExtensions.cs" />
+    <Compile Include="Config\ConfigProperty.cs" />
+    <Compile Include="Config\TestConfig.cs" />
+    <Compile Include="Config\ProcessWideConfig.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCase.cs" />
+    <Compile Include="Abstractions\ITestingEnvironment.cs" />
+    <Compile Include="Implementation\PTRManager.cs" />
+    <Compile Include="Implementation\TestingEnvironment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

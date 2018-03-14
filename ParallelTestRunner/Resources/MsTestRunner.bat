@@ -1,0 +1,1 @@
+@echo OFF & /C Title %title% - Started at: %time:~0,8% & mstest.exe /nologo /testcontainer:%test-container% /resultsfile:%result-file% %test-case-switch%/test:%test-case% 
