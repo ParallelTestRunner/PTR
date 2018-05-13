@@ -81,6 +81,9 @@ namespace HotelBookingTests.Steps
         [When(@"I find out a record with (.*) as Firstname")]
         public void IFindOutARecordWithAsFirstname(string firstName)
         {
+            WaitUntil(() => WebManager.HotelBookingPage.GetAllNames().IndexOf(firstName) != -1);
+            System.Threading.Thread.Sleep(1000);
+
             var names = WebManager.HotelBookingPage.GetAllNames();
             var indexOfNameToBeDeleted = names.IndexOf(firstName);
             Assert.IsTrue(indexOfNameToBeDeleted != -1, $"No record is found with first name: \"{firstName}\"");

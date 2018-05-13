@@ -2,7 +2,7 @@
 Feature: HotelBooking
 	Testing of hotel booking features
 
-Scenario Outline: User should be able to do booking by entering valid values in all fields
+Scenario Outline: 1 - User should be able to do booking by entering valid values in all fields
  Given I open the Hotel Booking website
  When I enter <Name> as the Firstname
  And I enter <Surname> as the Surname
@@ -19,7 +19,7 @@ Scenario Outline: User should be able to do booking by entering valid values in 
  | Brock | Lesner  | 500   | false   | 2018-05-12  | 2018-05-15   |
 
 
-Scenario: User should be able to delete a booking
+Scenario: 2 - User should be able to delete a booking
  Given I open the Hotel Booking website
  When I find out a record with Aseem as Firstname
  And I click the Delete button corresponding to that record

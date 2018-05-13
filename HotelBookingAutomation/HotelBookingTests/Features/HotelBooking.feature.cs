@@ -66,12 +66,12 @@ namespace HotelBookingTests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User should be able to do booking by entering valid values in all fields")]
+        [NUnit.Framework.DescriptionAttribute("1 - User should be able to do booking by entering valid values in all fields")]
         [NUnit.Framework.TestCaseAttribute("Aseem", "Sharma", "100", "true", "2018-05-12", "2018-05-15", null)]
         [NUnit.Framework.TestCaseAttribute("Brock", "Lesner", "500", "false", "2018-05-12", "2018-05-15", null)]
-        public virtual void UserShouldBeAbleToDoBookingByEnteringValidValuesInAllFields(string name, string surname, string price, string deposit, string checkInDate, string checkOutDate, string[] exampleTags)
+        public virtual void _1_UserShouldBeAbleToDoBookingByEnteringValidValuesInAllFields(string name, string surname, string price, string deposit, string checkInDate, string checkOutDate, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User should be able to do booking by entering valid values in all fields", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 - User should be able to do booking by entering valid values in all fields", exampleTags);
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
@@ -97,10 +97,10 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User should be able to delete a booking")]
-        public virtual void UserShouldBeAbleToDeleteABooking()
+        [NUnit.Framework.DescriptionAttribute("2 - User should be able to delete a booking")]
+        public virtual void _2_UserShouldBeAbleToDeleteABooking()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User should be able to delete a booking", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 - User should be able to delete a booking", ((string[])(null)));
 #line 22
 this.ScenarioSetup(scenarioInfo);
 #line 23

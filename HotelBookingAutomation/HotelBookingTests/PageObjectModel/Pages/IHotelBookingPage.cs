@@ -24,7 +24,7 @@ namespace HotelBookingTests.PageObjectModel.Pages
         void DeleteRecordByName(string name);
     }
 
-    class HotelBookingPage: IHotelBookingPage
+    class HotelBookingPage : IHotelBookingPage
     {
         private HotelBookingPageUiMap UiMap = new HotelBookingPageUiMap();
 
@@ -84,7 +84,7 @@ namespace HotelBookingTests.PageObjectModel.Pages
 
         public void ClickSaveRecord()
         {
-            Driver.FindElement(By.CssSelector(UiMap.SaveButtonCss)).Click();
+            ClickByCss(UiMap.SaveButtonCss);
         }
 
         public List<string> GetAllNames()
@@ -97,7 +97,31 @@ namespace HotelBookingTests.PageObjectModel.Pages
         public void DeleteRecordByName(string name)
         {
             var rowIndex = GetAllNames().IndexOf(name);
-            Driver.FindElement(By.CssSelector(UiMap.GetDeleteButtonCssByRowIndex(rowIndex))).Click();
+            ClickByCss(UiMap.GetDeleteButtonCssByRowIndex(rowIndex));
+        }
+
+        private void ClickByCss(string cssSelector)
+        {
+            var webDriverWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            try
+            {
+                webDriverWait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(cssSelector)));
+                Driver.FindElement(By.CssSelector(cssSelector)).Click();
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    webDriverWait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(cssSelector)));
+                    System.Threading.Thread.Sleep(1000);
+                    Driver.FindElement(By.CssSelector(cssSelector)).Click();
+
+                }
+                catch (Exception)
+                {
+                    ((IJavaScriptExecutor)Driver).ExecuteScript($"document.querySelector('{cssSelector}').click();");
+                }
+            }
         }
     }
 
